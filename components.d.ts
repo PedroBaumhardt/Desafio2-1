@@ -15,6 +15,7 @@ declare module 'vue' {
     DrawerHandle: typeof import('./src/components/Drawer/DrawerHandle.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     MyDrawer: typeof import('./src/components/Drawer/MyDrawer.vue')['default']
+    MyTable: typeof import('./src/components/Table/MyTable.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

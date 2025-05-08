@@ -1,5 +1,6 @@
 <template>
   <MyDrawer />
+  <MyTable />
 </template>
 
 <script setup>
