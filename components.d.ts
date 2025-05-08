@@ -9,8 +9,12 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
+    Drawer: typeof import('@/components/MyDrawer/MyDrawer.vue')['default']
+    DrawerButton: typeof import('./src/components/Drawer/DrawerButton.vue')['default']
+    DrawerContent: typeof import('./src/components/Drawer/DrawerContent.vue')['default']
     DrawerHandle: typeof import('./src/components/Drawer/DrawerHandle.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    MyDrawer: typeof import('./src/components/Drawer/MyDrawer.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

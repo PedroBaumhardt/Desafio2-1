@@ -1,8 +1,8 @@
 <template>
-  <DrawerHandle />
+  <MyDrawer />
 </template>
 
 <script setup>
   //
-  import DrawerHandle from '@/components/Drawer/DrawerHandle.vue';
+  import MyDrawer from '@/components/Drawer/MyDrawer.vue';
 </script>
