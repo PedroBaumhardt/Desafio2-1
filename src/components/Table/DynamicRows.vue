@@ -32,11 +32,11 @@
     v-for="row in rows"
     :key="row.id"
   >
-    <td class="first-row">{{ row.id }}</td>
-    <td class="row">{{ row.name }}</td>
-    <td class="row">{{ row.email }}</td>
+    <td class="first-row text-center bold">{{ row.id }}</td>
+    <td class="row text-center">{{ row.name }}</td>
+    <td class="row text-center">{{ row.email }}</td>
     <td class="row text-center bold"><DateRow :date="row.date" /></td>
-    <td class="row">{{ row.value }}</td>
+    <td class="row text-center">{{ row.value }}</td>
     <td class="row text-center"><StatusRow :status="row.status" /></td>
     <td class="row text-center bold"><DateRow :date="row.created_at" /></td>
     <td class="last-row text-center bold"><DateRow :date="row.updated_at" /></td>

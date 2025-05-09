@@ -10,7 +10,7 @@ const closeDrawer = () => {
 </script>
 
 <template>
-  <div class="overscreen-container">
+  <div class="overscreen-container" :class="{ closed: drawerStore.isHidden }">
     <figure
       class="background"
       :class="{ closed: !drawerStore.isOpen, hidden: drawerStore.isHidden }"
@@ -41,6 +41,10 @@ const closeDrawer = () => {
    width: 100vw;
    max-width: 100vw;
    overflow-x: hidden;
+ }
+
+ .overscreen-container.closed {
+   width: 0;
  }
 
  .background {
