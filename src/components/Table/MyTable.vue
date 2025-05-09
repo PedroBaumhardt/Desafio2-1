@@ -1,10 +1,8 @@
 <script setup>
 
-import {useSearcher} from "@/stores/searcher.js";
 import {usePageControl} from "@/stores/pageControl.js";
 
 const pageControl = usePageControl()
-const searcher = useSearcher()
 
 </script>
 
@@ -15,23 +13,14 @@ const searcher = useSearcher()
       <h1 class="main-title">Tabela Order API</h1>
       <v-table>
         <thead>
-          <tr>
-            <th class="text-center">id</th>
-            <th class="text-center">Nome do cliente</th>
-            <th class="text-center">Email do cliente</th>
-            <th class="text-center">Data do pedido</th>
-            <th class="text-center">Valor</th>
-            <th class="text-center">status</th>
-            <th class="text-center">Criado em</th>
-            <th class="text-center">Atualizado em</th>
-          </tr>
+          <TableHead />
         </thead>
         <tbody>
           <DynamicRows />
         </tbody>
       </v-table>
-      <div v-if="searcher.isActive" class="pagination-container">
-        <v-pagination />
+      <div v-if="pageControl.isActive" class="pagination-container">
+        <v-pagination v-model="pageControl.actualPage" :length="pageControl.resultLen"/>
       </div>
     </div>
   </div>
@@ -39,11 +28,6 @@ const searcher = useSearcher()
 </template>
 
 <style scoped>
-
-  th {
-    background: var(--primary);
-    color: var(--surface);
-  }
 
   .main-title {
     font-size: 3rem;

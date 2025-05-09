@@ -8,11 +8,8 @@ export const useSearcher = defineStore('searcher', () => {
   const filterSort = ref('')
   const filterOrder = ref('')
   const page = ref(-1)
-  const isActive = ref(false)
-  const result = ref({})
-  const resultLen = ref(0)
-  const actualPage = ref(0)
-  const links = ref({})
+
+
 
   const factoryReset = () => {
     filterName.value = ''
@@ -43,7 +40,7 @@ export const useSearcher = defineStore('searcher', () => {
     }
   }
 
-  const search = (qry, salStore) => {
+  const search = (qry, salStore, pageStore) => {
     salStore.startLoading()
     importQueryParams(qry)
     let baseUrl = "https://apis.codante.io/api/orders-api"
@@ -59,26 +56,26 @@ export const useSearcher = defineStore('searcher', () => {
       baseUrl += "&orderby=" + filterOrder.value
     }
 
-    useApi(baseUrl, salStore)
+    useApi(baseUrl, salStore, pageStore)
   }
 
-  const useApi = (url, sal) => {
+  const useApi = (url, sal, pageStore) => {
     axios
       .get(url)
       .then(
         response => {
-          result.value = response.data
-          resultLen.value = response.meta.last_page
-          actualPage.value = response.meta.current_page
-          links.value = response.meta.links
+          pageStore.resultLen = response.data
+          pageStore.resultLen = response.meta.last_page
+          pageStore.actualPage = response.meta.current_page
+          pageStore.links = response.meta.links
         }
       )
       .finally(() => {
-        isActive.value = true
+        pageStore.isActive = true
         sal.stopLoading()
       })
   }
 
-  return {filterName, filterStatus, filterSort, filterOrder, page, isActive, result, resultLen, actualPage, links, factoryReset, importQueryParams, search, useApi}
+  return {filterName, filterStatus, filterSort, filterOrder, page, factoryReset, importQueryParams, search, useApi}
 
 })
