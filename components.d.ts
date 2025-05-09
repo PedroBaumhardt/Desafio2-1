@@ -21,5 +21,6 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     StatusRow: typeof import('./src/components/Table/StatusRow.vue')['default']
+    ValueRow: typeof import('./src/components/Table/ValueRow.vue')['default']
   }
 }

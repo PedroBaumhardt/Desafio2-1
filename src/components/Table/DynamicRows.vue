@@ -7,7 +7,7 @@
     name: 'a',
     email: 'a',
     date: '1666632563517',
-    value: 'a',
+    value: '100',
     status: 'pending',
     created_at: '1666632563517',
     updated_at: '1666632563517',
@@ -17,7 +17,7 @@
       name: 'a',
       email: 'a',
       date: '1666632563517',
-      value: 'a',
+      value: '10',
       status: 'completed',
       created_at: '1666632563517',
       updated_at: '1666632563517',
@@ -36,7 +36,7 @@
     <td class="row text-center">{{ row.name }}</td>
     <td class="row text-center">{{ row.email }}</td>
     <td class="row text-center bold"><DateRow :date="row.date" /></td>
-    <td class="row text-center">{{ row.value }}</td>
+    <td class="row text-center bold"><ValueRow :value="row.value" /> </td>
     <td class="row text-center"><StatusRow :status="row.status" /></td>
     <td class="row text-center bold"><DateRow :date="row.created_at" /></td>
     <td class="last-row text-center bold"><DateRow :date="row.updated_at" /></td>
