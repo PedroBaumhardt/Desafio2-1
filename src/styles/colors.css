@@ -1,5 +1,7 @@
 :root {
     --primary: #795548;
+    --primary-light: #BCAAA4;
+    --primary-light-2: #b39e99;
     --secondary: #607D8B;
     --surface: #ECEFF1;
 }

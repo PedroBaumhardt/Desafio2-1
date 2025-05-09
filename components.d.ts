@@ -13,10 +13,12 @@ declare module 'vue' {
     DrawerButton: typeof import('./src/components/Drawer/DrawerButton.vue')['default']
     DrawerContent: typeof import('./src/components/Drawer/DrawerContent.vue')['default']
     DrawerHandle: typeof import('./src/components/Drawer/DrawerHandle.vue')['default']
+    DynamicRows: typeof import('./src/components/Table/DynamicRows.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     MyDrawer: typeof import('./src/components/Drawer/MyDrawer.vue')['default']
     MyTable: typeof import('./src/components/Table/MyTable.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    StatusRow: typeof import('./src/components/Table/StatusRow.vue')['default']
   }
 }

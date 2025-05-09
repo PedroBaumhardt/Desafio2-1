@@ -10,16 +10,19 @@
       <v-table>
         <thead>
           <tr>
-            <th>id</th>
-            <th>Nome do cliente</th>
-            <th>Email do cliente</th>
-            <th>Data do pedido</th>
-            <th>Valor</th>
-            <th>status</th>
-            <th>Criado em</th>
-            <th>Atualizado em</th>
+            <th class="text-center">id</th>
+            <th class="text-center">Nome do cliente</th>
+            <th class="text-center">Email do cliente</th>
+            <th class="text-center">Data do pedido</th>
+            <th class="text-center">Valor</th>
+            <th class="text-center">status</th>
+            <th class="text-center">Criado em</th>
+            <th class="text-center">Atualizado em</th>
           </tr>
         </thead>
+        <tbody>
+          <DynamicRows />
+        </tbody>
       </v-table>
     </div>
   </div>
