@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+
 export const useFilterControl = defineStore('filterControl', () => {
 
   const filterName = ref('')
@@ -26,6 +27,28 @@ export const useFilterControl = defineStore('filterControl', () => {
     return qry
   }
 
-  return {page, filterName, filterStatus, filterSort, filterOrder, buildQueryParams}
+  const importQueryParams = (qry = {}) => {
+
+    if (!qry || typeof qry !== 'object') {
+      return
+    }
+
+    if (qry.page !== undefined) {
+      page.value = qry.page
+    }
+    if (qry.name !== undefined) {
+      filterName.value = qry.name
+    }
+    if (qry.status !== undefined && qry.status === 'pending' || qry.status === 'completed') {
+      filterStatus.value = qry.status
+    }
+    if (qry.sortby !== undefined && qry.orderby !== undefined) {
+      filterSort.value = qry.sortby
+      filterOrder.value = qry.orderby
+    }
+
+  }
+
+  return {page, filterName, filterStatus, filterSort, filterOrder, buildQueryParams, importQueryParams}
 
 })

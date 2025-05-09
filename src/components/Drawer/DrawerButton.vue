@@ -5,14 +5,13 @@ import {useSearchAndLoadControl} from "@/stores/searchAndLoading.js";
 
 const filterControl = useFilterControl()
 const salControl = useSearchAndLoadControl()
+const searcher = useSearcher()
 const router = useRouter()
 
 const send = () => {
-
   if(salControl.isLoading) return
   router.push({query: filterControl.buildQueryParams()})
-  salControl.startLoading()
-
+  searcher.search(query, salControl)
 }
 
 </script>

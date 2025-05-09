@@ -1,5 +1,11 @@
 <script setup>
 
+import {useSearcher} from "@/stores/searcher.js";
+import {usePageControl} from "@/stores/pageControl.js";
+
+const pageControl = usePageControl()
+const searcher = useSearcher()
+
 </script>
 
 <template>
@@ -24,6 +30,9 @@
           <DynamicRows />
         </tbody>
       </v-table>
+      <div v-if="searcher.isActive" class="pagination-container">
+        <v-pagination />
+      </div>
     </div>
   </div>
 

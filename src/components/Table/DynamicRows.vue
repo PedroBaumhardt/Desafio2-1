@@ -33,8 +33,8 @@
     :key="row.id"
   >
     <td class="first-row text-center bold">{{ row.id }}</td>
-    <td class="row text-center">{{ row.name }}</td>
-    <td class="row text-center">{{ row.email }}</td>
+    <td class="row text-center bold">{{ row.name }}</td>
+    <td class="row text-center bold">{{ row.email }}</td>
     <td class="row text-center bold"><DateRow :date="row.date" /></td>
     <td class="row text-center bold"><ValueRow :value="row.value" /> </td>
     <td class="row text-center"><StatusRow :status="row.status" /></td>
