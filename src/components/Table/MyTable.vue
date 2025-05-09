@@ -16,7 +16,7 @@ const pageControl = usePageControl()
           <TableHead />
         </thead>
         <tbody>
-          <DynamicRows />
+          <DynamicRows :rows="pageControl.result"/>
         </tbody>
       </v-table>
       <div v-if="pageControl.isActive" class="pagination-container">

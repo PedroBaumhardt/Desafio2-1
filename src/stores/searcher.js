@@ -56,7 +56,7 @@ export const useSearcher = defineStore('searcher', () => {
       baseUrl += "&orderby=" + filterOrder.value
     }
 
-    useApi(baseUrl, salStore, pageStore)
+    useApi(baseUrl, salStore, pageStore).then(factoryReset)
   }
 
   const useApi = (url, sal, pageStore) => {
@@ -68,6 +68,7 @@ export const useSearcher = defineStore('searcher', () => {
           pageStore.resultLen = response.meta.last_page
           pageStore.actualPage = response.meta.current_page
           pageStore.links = response.meta.links
+          pageStore.baseLinks = response.links
         }
       )
       .finally(() => {

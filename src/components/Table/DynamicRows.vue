@@ -1,42 +1,20 @@
 <script setup>
 
   const props = defineProps(['rows'])
-  const rows = [
-    {
-    id: 'a',
-    name: 'a',
-    email: 'a',
-    date: '1666632563517',
-    value: '100',
-    status: 'pending',
-    created_at: '1666632563517',
-    updated_at: '1666632563517',
-  },
-    {
-      id: 'a',
-      name: 'a',
-      email: 'a',
-      date: '1666632563517',
-      value: '10',
-      status: 'completed',
-      created_at: '1666632563517',
-      updated_at: '1666632563517',
-    },
-  ]
 
 </script>
 
 <template>
 
   <tr
-    v-for="row in rows"
+    v-for="row in props.rows"
     :key="row.id"
   >
     <td class="first-row text-center bold">{{ row.id }}</td>
-    <td class="row text-center bold">{{ row.name }}</td>
-    <td class="row text-center bold">{{ row.email }}</td>
-    <td class="row text-center bold"><DateRow :date="row.date" /></td>
-    <td class="row text-center bold"><ValueRow :value="row.value" /> </td>
+    <td class="row text-center bold">{{ row.customer_name }}</td>
+    <td class="row text-center bold">{{ row.customer_email }}</td>
+    <td class="row text-center bold"><DateRow :date="row.oreder_date" /></td>
+    <td class="row text-center bold"><ValueRow :value="row.amount_in_cents" /> </td>
     <td class="row text-center"><StatusRow :status="row.status" /></td>
     <td class="row text-center bold"><DateRow :date="row.created_at" /></td>
     <td class="last-row text-center bold"><DateRow :date="row.updated_at" /></td>
