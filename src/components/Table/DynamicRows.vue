@@ -6,21 +6,21 @@
     id: 'a',
     name: 'a',
     email: 'a',
-    date: 'a',
+    date: '1666632563517',
     value: 'a',
     status: 'pending',
-    created_at: 'a',
-    updated_at: 'a',
+    created_at: '1666632563517',
+    updated_at: '1666632563517',
   },
     {
       id: 'a',
       name: 'a',
       email: 'a',
-      date: 'a',
+      date: '1666632563517',
       value: 'a',
       status: 'completed',
-      created_at: 'a',
-      updated_at: 'a',
+      created_at: '1666632563517',
+      updated_at: '1666632563517',
     },
   ]
 
@@ -35,11 +35,11 @@
     <td class="first-row">{{ row.id }}</td>
     <td class="row">{{ row.name }}</td>
     <td class="row">{{ row.email }}</td>
-    <td class="row">{{ row.date }}</td>
+    <td class="row text-center bold"><DateRow :date="row.date" /></td>
     <td class="row">{{ row.value }}</td>
     <td class="row text-center"><StatusRow :status="row.status" /></td>
-    <td class="row">{{ row.created_at }}</td>
-    <td class="last-row">{{ row.updated_at }}</td>
+    <td class="row text-center bold"><DateRow :date="row.created_at" /></td>
+    <td class="last-row text-center bold"><DateRow :date="row.updated_at" /></td>
   </tr>
 
 </template>
@@ -53,6 +53,10 @@
   .first-row,
   .row {
     border-right: 1px solid var(--primary-light-2);
+  }
+
+  .bold {
+    font-weight: bold;
   }
 
 </style>

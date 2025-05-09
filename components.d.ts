@@ -9,6 +9,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
+    DateRow: typeof import('./src/components/Table/DateRow.vue')['default']
     Drawer: typeof import('@/components/MyDrawer/MyDrawer.vue')['default']
     DrawerButton: typeof import('./src/components/Drawer/DrawerButton.vue')['default']
     DrawerContent: typeof import('./src/components/Drawer/DrawerContent.vue')['default']
