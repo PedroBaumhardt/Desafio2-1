@@ -3,17 +3,19 @@
 import {useFilterControl} from "@/stores/filterControl.js";
 import {useSearchAndLoadControl} from "@/stores/searchAndLoading.js";
 import {useSearcher} from "@/stores/searcher.js";
+import {usePageControl} from "@/stores/pageControl.js";
 
 const filterControl = useFilterControl()
 const salControl = useSearchAndLoadControl()
 const searcher = useSearcher()
+const pageStore = usePageControl()
 const router = useRouter()
 
 const send = () => {
   if(salControl.isLoading) return
-  const query = filterControl.buildQueryParams
+  const query = filterControl.buildQueryParams()
   router.push({query: query})
-  searcher.search(query, salControl)
+  searcher.search(query, salControl, pageStore)
 }
 
 </script>

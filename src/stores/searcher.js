@@ -43,7 +43,7 @@ export const useSearcher = defineStore('searcher', () => {
   const search = (qry, salStore, pageStore) => {
     salStore.startLoading()
     importQueryParams(qry)
-    let baseUrl = "https://apis.codante.io/api/orders-api"
+    let baseUrl = "https://apis.codante.io/api/orders-api/orders"
     baseUrl += "?page=" + page.value
     if(filterName.value !== '') {
       baseUrl += "&name=" + filterName.value
@@ -56,7 +56,9 @@ export const useSearcher = defineStore('searcher', () => {
       baseUrl += "&orderby=" + filterOrder.value
     }
 
-    useApi(baseUrl, salStore, pageStore).then(factoryReset)
+    console.log(baseUrl)
+
+    useApi(baseUrl, salStore, pageStore)
   }
 
   const useApi = (url, sal, pageStore) => {
@@ -74,6 +76,7 @@ export const useSearcher = defineStore('searcher', () => {
       .finally(() => {
         pageStore.isActive = true
         sal.stopLoading()
+        factoryReset()
       })
   }
 
