@@ -31,7 +31,7 @@
           :items="[
           {pretty: 'Nome', val: 'customer_name'},
           {pretty: 'Data', val: 'order_date'},
-          {pretty: 'valor', val: 'amount_in_cents'},
+          {pretty: 'Valor', val: 'amount_in_cents'},
           {pretty: 'Não', val: 'no'}
         ]"
           item-title="pretty"
