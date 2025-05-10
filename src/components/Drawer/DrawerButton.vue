@@ -13,8 +13,10 @@ const router = useRouter()
 
 const send = () => {
   if(salControl.isLoading) return
+  filterControl.page = 1
   const query = filterControl.buildQueryParams()
-  router.push({query: query})
+  router.replace({query: null})
+  router.replace({query: query})
   searcher.search(query, salControl, pageStore)
 }
 

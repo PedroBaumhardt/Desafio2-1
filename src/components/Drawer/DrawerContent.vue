@@ -29,8 +29,9 @@
         <v-select
           label="Ordernar por:"
           :items="[
-          {pretty: 'Nome', val: 'name'},
-          {pretty: 'Data', val: 'date'},
+          {pretty: 'Nome', val: 'customer_name'},
+          {pretty: 'Data', val: 'order_date'},
+          {pretty: 'valor', val: 'amount_in_cents'},
           {pretty: 'Não', val: 'no'}
         ]"
           item-title="pretty"

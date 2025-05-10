@@ -4,16 +4,11 @@ export const usePageControl = defineStore('pageControl', () => {
   const result = ref({})
   const resultLen = ref(0)
   const actualPage = ref(0)
-  const links = ref({})
-  const baseLinks = ref({})
   const isActive = ref(false)
 
-
-  const getLinkByPage = (page) => {
-    let tgt = links.find(link => link.label === page.toString())
-    return tgt.url
+  const goToPage = (qry, searcher, sal, self) => {
+    searcher.search(qry, searcher, sal, self)
   }
 
-
-  return {result, resultLen, actualPage, links, isActive, baseLinks, getLinkByPage}
+  return {result, resultLen, actualPage, isActive, goToPage}
 })

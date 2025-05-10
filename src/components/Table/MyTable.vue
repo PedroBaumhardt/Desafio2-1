@@ -1,8 +1,26 @@
 <script setup>
 
 import {usePageControl} from "@/stores/pageControl.js";
+import {useSearchAndLoadControl} from "@/stores/searchAndLoading.js";
+import {useSearcher} from "@/stores/searcher.js";
+import {useFilterControl} from "@/stores/filterControl.js";
 
+const router = useRouter()
+const salControl = useSearchAndLoadControl()
 const pageControl = usePageControl()
+const searcher = useSearcher()
+const filterControl = useFilterControl()
+
+const updatePage = (newPage) => {
+  setTimeout(() => {
+    if(salControl.isLoading) return
+    filterControl.page = newPage
+    const query = filterControl.buildQueryParams()
+    router.replace({query: null})
+    router.replace({query: query})
+    searcher.search(query, salControl, pageControl)
+  }, 0)
+  }
 
 </script>
 
@@ -20,7 +38,7 @@ const pageControl = usePageControl()
         </tbody>
       </v-table>
       <div v-if="pageControl.isActive" class="pagination-container">
-        <v-pagination v-model="pageControl.actualPage" :length="pageControl.resultLen"/>
+        <v-pagination @click="updatePage(pageControl.actualPage)" v-model="pageControl.actualPage" :length="pageControl.resultLen"/>
       </div>
     </div>
   </div>

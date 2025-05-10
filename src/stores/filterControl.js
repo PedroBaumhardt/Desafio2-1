@@ -14,7 +14,7 @@ export const useFilterControl = defineStore('filterControl', () => {
     }
 
     if(filterName.value !== '') {
-      qry.name = filterName.value
+      qry.search = filterName.value
     }
     if(filterStatus.value !== 'no') {
       qry.status = filterStatus.value
@@ -37,7 +37,7 @@ export const useFilterControl = defineStore('filterControl', () => {
       page.value = qry.page
     }
     if (qry.name !== undefined) {
-      filterName.value = qry.name
+      filterName.value = qry.search
     }
     if (qry.status !== undefined && qry.status === 'pending' || qry.status === 'completed') {
       filterStatus.value = qry.status

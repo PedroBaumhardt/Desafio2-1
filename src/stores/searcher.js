@@ -29,8 +29,8 @@ export const useSearcher = defineStore('searcher', () => {
       page.value = qry.page
     }
 
-    if (qry.name !== undefined && qry.name !== '') {
-      filterName.value = qry.name
+    if (qry.search !== undefined && qry.search !== '') {
+      filterName.value = qry.search
     }
 
     if (qry.status !== undefined && qry.status === 'pending' || qry.status === 'completed') {
@@ -49,7 +49,7 @@ export const useSearcher = defineStore('searcher', () => {
     let baseUrl = "https://apis.codante.io/api/orders-api/orders"
     baseUrl += "?page=" + page.value
     if(filterName.value !== '') {
-      baseUrl += "&name=" + filterName.value
+      baseUrl += "&search=" + filterName.value
     }
     if(filterStatus.value !== '') {
       baseUrl += "&status=" + filterStatus.value
@@ -59,12 +59,11 @@ export const useSearcher = defineStore('searcher', () => {
       baseUrl += "&orderby=" + filterOrder.value
     }
 
-    console.log(baseUrl)
-
     useApi(baseUrl, salStore, pageStore)
   }
 
   const useApi = (url, sal, pageStore) => {
+    console.log(url)
     axios
       .get(url)
       .then(
