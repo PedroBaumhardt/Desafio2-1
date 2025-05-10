@@ -56,6 +56,7 @@ export const useSearcher = defineStore('searcher', () => {
     }
     if(filterSort.value !== '') {
       baseUrl += "&sort="
+      console.log(filterSort.value)
       if(filterOrder.value === 'desc'){
         baseUrl += "-"
       }

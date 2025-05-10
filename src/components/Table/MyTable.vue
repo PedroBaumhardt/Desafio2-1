@@ -33,10 +33,11 @@ const updatePage = (newPage) => {
         <thead>
           <TableHead />
         </thead>
-        <tbody>
+        <tbody v-if="!salControl.isLoading">
           <DynamicRows :rows="pageControl.result"/>
         </tbody>
       </v-table>
+      <i v-if="salControl.isLoading" class="fa-solid fa-spinner fa-spin fa-2xl my-spinner"></i>
       <div v-if="pageControl.isActive" class="pagination-container">
         <v-pagination @click="updatePage(pageControl.actualPage)" v-model="pageControl.actualPage" :length="pageControl.resultLen"/>
       </div>
@@ -65,12 +66,27 @@ const updatePage = (newPage) => {
     display: flex;
     flex-direction: column;
     margin-top: 40px;
+    overflow-x: scroll !important;
     align-items: center;
   }
 
   .pagination-container {
     margin-top: 20px;
-    max-width: 500px;
+    max-width: 50vw;
+  }
+
+  .my-spinner {
+    margin: 25px 0 10px;
+  }
+
+  @media(max-width: 1000px) {
+    .main-title {
+      font-size: 2rem;
+    }
+
+    .main-container {
+      margin: 0 10px;
+    }
   }
 
 </style>

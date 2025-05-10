@@ -24,4 +24,16 @@
     color: var(--surface);
   }
 
+  @media (max-width: 1000px) {
+    th {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 830px) {
+    th {
+      font-size: 9px
+    }
+  }
+
 </style>

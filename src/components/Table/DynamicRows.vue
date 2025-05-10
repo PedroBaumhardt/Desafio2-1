@@ -37,4 +37,14 @@
     font-weight: bold;
   }
 
+  @media (max-width: 1000px) {
+    td {
+      font-size: 12px;
+    }
+
+    td {
+      font-size: 9px;
+    }
+  }
+
 </style>
