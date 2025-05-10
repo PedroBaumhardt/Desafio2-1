@@ -55,8 +55,11 @@ export const useSearcher = defineStore('searcher', () => {
       baseUrl += "&status=" + filterStatus.value
     }
     if(filterSort.value !== '') {
-      baseUrl += "&sortby=" + filterSort.value
-      baseUrl += "&orderby=" + filterOrder.value
+      baseUrl += "&sort="
+      if(filterOrder.value === 'desc'){
+        baseUrl += "-"
+      }
+      baseUrl += filterStatus.value
     }
 
     useApi(baseUrl, salStore, pageStore)
