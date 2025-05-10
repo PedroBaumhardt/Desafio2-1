@@ -50,4 +50,9 @@ const pageControl = usePageControl()
     align-items: center;
   }
 
+  .pagination-container {
+    margin-top: 20px;
+    max-width: 500px;
+  }
+
 </style>

@@ -81,8 +81,15 @@ const closeDrawer = () => {
    flex-direction: column;
    height: 100%;
    width: 80%;
+   overflow-y: scroll;
+   scrollbar-width: none;
+   -ms-overflow-style: none;
    background-color: var(--secondary);
    transition: all 0.4s ease-out;
+ }
+
+ .drawer-box::-webkit-scrollbar {
+   display: none;
  }
 
  .drawer-box.closed {

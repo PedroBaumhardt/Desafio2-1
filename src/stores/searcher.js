@@ -25,16 +25,19 @@ export const useSearcher = defineStore('searcher', () => {
       return
     }
 
-    if (qry.page !== undefined) {
+    if (qry.page !== undefined && qry.page > 0) {
       page.value = qry.page
     }
-    if (qry.name !== undefined) {
+
+    if (qry.name !== undefined && qry.name !== '') {
       filterName.value = qry.name
     }
-    if (qry.status !== undefined && qry.status == 'pending' || qry.status == 'completed') {
+
+    if (qry.status !== undefined && qry.status === 'pending' || qry.status === 'completed') {
       filterStatus.value = qry.status
     }
-    if (qry.sortby !== undefined && qry.orderby !== undefined) {
+
+    if (qry.sortby !== undefined && qry.orderby !== undefined && qry.sortby !== '' && qry.orderby !== '') {
       filterSort.value = qry.sortby
       filterOrder.value = qry.orderby
     }
@@ -48,10 +51,10 @@ export const useSearcher = defineStore('searcher', () => {
     if(filterName.value !== '') {
       baseUrl += "&name=" + filterName.value
     }
-    if(filterStatus.value !== 'no') {
+    if(filterStatus.value !== '') {
       baseUrl += "&status=" + filterStatus.value
     }
-    if(filterSort.value !== 'no') {
+    if(filterSort.value !== '') {
       baseUrl += "&sortby=" + filterSort.value
       baseUrl += "&orderby=" + filterOrder.value
     }
@@ -66,11 +69,12 @@ export const useSearcher = defineStore('searcher', () => {
       .get(url)
       .then(
         response => {
-          pageStore.resultLen = response.data
-          pageStore.resultLen = response.meta.last_page
-          pageStore.actualPage = response.meta.current_page
-          pageStore.links = response.meta.links
-          pageStore.baseLinks = response.links
+          console.log(response)
+          pageStore.result = response.data.data
+          pageStore.resultLen = response.data.meta.last_page
+          pageStore.actualPage = response.data.meta.current_page
+          pageStore.links = response.data.meta.links
+          pageStore.baseLinks = response.data.links
         }
       )
       .finally(() => {
