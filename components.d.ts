@@ -18,6 +18,7 @@ declare module 'vue' {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     MyDrawer: typeof import('./src/components/Drawer/MyDrawer.vue')['default']
     MyTable: typeof import('./src/components/Table/MyTable.vue')['default']
+    MyToast: typeof import('./src/components/Toasts/MyToast.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     StatusRow: typeof import('./src/components/Table/StatusRow.vue')['default']

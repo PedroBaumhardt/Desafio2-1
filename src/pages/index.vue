@@ -1,6 +1,7 @@
 <template>
   <MyDrawer />
   <MyTable />
+  <MyToast v-if="toastControl.isOpen" />
 </template>
 
 <script setup>
@@ -10,7 +11,9 @@
   import {useSearcher} from "@/stores/searcher.js";
   import {useSearchAndLoadControl} from "@/stores/searchAndLoading.js";
   import {usePageControl} from "@/stores/pageControl.js";
+  import {useToastControl} from "@/stores/toastControl.js";
 
+  const toastControl = useToastControl()
   const searcher = useSearcher()
   const filterControl = useFilterControl()
   const router = useRouter()
@@ -27,7 +30,7 @@
     }
     let qry = filterControl.importQueryParams(route.query)
     if  (qry !== -1) {
-      searcher.search(qry, salStore, pageStore)
+      searcher.search(qry, salStore, pageStore, toastControl)
     }
   })
 </script>
