@@ -13,7 +13,7 @@
     <td class="first-row text-center bold">{{ row.id }}</td>
     <td class="row text-center bold">{{ row.customer_name }}</td>
     <td class="row text-center bold">{{ row.customer_email }}</td>
-    <td class="row text-center bold"><DateRow :date="row.order_date" /></td>
+    <td class="row text-center bold"><SimplifiedDateRow :date="row.order_date" /></td>
     <td class="row text-center bold"><ValueRow :value="row.amount_in_cents" /> </td>
     <td class="row text-center"><StatusRow :status="row.status" /></td>
     <td class="row text-center bold"><DateRow :date="row.created_at" /></td>

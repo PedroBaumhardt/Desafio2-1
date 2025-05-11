@@ -21,6 +21,7 @@ declare module 'vue' {
     MyToast: typeof import('./src/components/Toasts/MyToast.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SimplifiedDateRow: typeof import('./src/components/Table/SimplifiedDateRow.vue')['default']
     StatusRow: typeof import('./src/components/Table/StatusRow.vue')['default']
     TableHead: typeof import('./src/components/Table/TableHead.vue')['default']
     ValueRow: typeof import('./src/components/Table/ValueRow.vue')['default']
