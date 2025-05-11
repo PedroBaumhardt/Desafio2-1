@@ -21,6 +21,7 @@
 
   th {
     background: var(--primary);
+    white-space: nowrap;
     color: var(--surface);
   }
 
@@ -30,10 +31,6 @@
     }
   }
 
-  @media (max-width: 830px) {
-    th {
-      font-size: 9px
-    }
-  }
+
 
 </style>

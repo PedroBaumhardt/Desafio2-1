@@ -16,7 +16,7 @@ const closeDrawer = () => {
       :class="{ closed: !drawerStore.isOpen, hidden: drawerStore.isHidden }"
       @click="closeDrawer"
     />
-    <div class="drawer-container">
+    <div class="drawer-container" :class="{hidden: drawerStore.isHidden}">
       <div class="drawer-box" :class="{ closed: !drawerStore.isOpen }">
         <DrawerContent />
         <DrawerButton />
@@ -73,6 +73,10 @@ const closeDrawer = () => {
    width: 400px;
    height: 100vh;
    max-height: 100vh;
+ }
+
+ .drawer-container.hidden {
+   width: 30px
  }
 
  .drawer-box {

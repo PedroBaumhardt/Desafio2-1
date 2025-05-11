@@ -29,14 +29,16 @@ const updatePage = (newPage) => {
   <div class="main-content-container">
     <div class="main-container">
       <h1 class="main-title">Tabela Order API</h1>
-      <v-table>
-        <thead>
+      <div class="table-container">
+        <v-table>
+          <thead>
           <TableHead />
-        </thead>
-        <tbody v-if="!salControl.isLoading">
+          </thead>
+          <tbody v-if="!salControl.isLoading">
           <DynamicRows :rows="pageControl.result"/>
-        </tbody>
-      </v-table>
+          </tbody>
+        </v-table>
+      </div>
       <i v-if="salControl.isLoading" class="fa-solid fa-spinner fa-spin fa-2xl my-spinner"></i>
       <div v-if="pageControl.isActive" class="pagination-container">
         <v-pagination @click="updatePage(pageControl.actualPage)" v-model="pageControl.actualPage" :length="pageControl.resultLen"/>
@@ -59,6 +61,7 @@ const updatePage = (newPage) => {
     justify-content: center;
     width: 100vw;
     max-width: 100vw;
+    overflow-x: hidden;
     height: 100vh;
   }
 
@@ -66,8 +69,17 @@ const updatePage = (newPage) => {
     display: flex;
     flex-direction: column;
     margin-top: 40px;
-    overflow-x: scroll !important;
+    max-width: 90vw;
     align-items: center;
+  }
+
+  .table-container {
+    max-width: 100%;
+    overflow-x: auto !important;
+  }
+
+  .table-container::-webkit-scrollbar {
+    display: none;
   }
 
   .pagination-container {

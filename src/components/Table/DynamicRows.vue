@@ -26,6 +26,7 @@
 
   td {
     background-color: var(--primary-light);
+    white-space: nowrap;
   }
 
   .first-row,
@@ -40,10 +41,6 @@
   @media (max-width: 1000px) {
     td {
       font-size: 12px;
-    }
-
-    td {
-      font-size: 9px;
     }
   }
 
