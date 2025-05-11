@@ -85,6 +85,9 @@ export const useSearcher = defineStore('searcher', () => {
       .finally(() => {
         sal.stopLoading()
         factoryReset()
+        setTimeout(() => {
+          sal.cooldown = false
+        }, 3000)
       })
   }
 

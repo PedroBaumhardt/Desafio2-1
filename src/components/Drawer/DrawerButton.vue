@@ -14,7 +14,8 @@ const pageStore = usePageControl()
 const router = useRouter()
 
 const send = () => {
-  if(salControl.isLoading) return
+  if(salControl.isLoading || salControl.cooldown) return
+  salControl.cooldown = true
   filterControl.page = 1
   const query = filterControl.buildQueryParams()
   router.replace({query: null})

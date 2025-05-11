@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 export const useSearchAndLoadControl = defineStore('searchAndLoading', () => {
 
   const isLoading = ref(false)
+  const cooldown = ref(false)
 
   const startLoading = () => {
     isLoading.value = true
@@ -12,5 +13,5 @@ export const useSearchAndLoadControl = defineStore('searchAndLoading', () => {
     isLoading.value = false
   }
 
-  return {isLoading, startLoading, stopLoading}
+  return {isLoading, cooldown, startLoading, stopLoading}
 })
