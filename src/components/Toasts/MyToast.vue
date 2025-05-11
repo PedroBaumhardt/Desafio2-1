@@ -9,7 +9,7 @@
 
   <div class="toast-container">
     <div class="toast success-toast" v-if="toastControl.isSuccess" @click="toastControl.closeToast">
-      <p class="toast-text success-text">Filtro aplicados</p>
+      <p class="toast-text success-text">Filtros aplicados</p>
     </div>
     <div class="toast error-toast" @click="toastControl.closeToast()" v-else>
       <p class="toast-text error-text">Erro inesperado</p>
