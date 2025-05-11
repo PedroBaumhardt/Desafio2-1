@@ -25,9 +25,7 @@ export const useSearcher = defineStore('searcher', () => {
       return
     }
 
-    if (qry.page !== undefined && qry.page > 0) {
-      page.value = qry.page
-    }
+    page.value = qry.page
 
     if (qry.search !== undefined && qry.search !== '') {
       filterName.value = qry.search
@@ -78,10 +76,13 @@ export const useSearcher = defineStore('searcher', () => {
           pageStore.actualPage = response.data.meta.current_page
           pageStore.links = response.data.meta.links
           pageStore.baseLinks = response.data.links
+          pageStore.isActive = true
         }
       )
+      .catch((error) => {
+        console.log(error)
+      })
       .finally(() => {
-        pageStore.isActive = true
         sal.stopLoading()
         factoryReset()
       })
