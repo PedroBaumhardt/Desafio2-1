@@ -12,7 +12,7 @@ export const useToastControl = defineStore('toastControl', () => {
 
     setTimeout(() => {
       isOpen.value = false
-    }, 1000)
+    }, 3000)
 
   }
 

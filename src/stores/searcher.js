@@ -41,7 +41,7 @@ export const useSearcher = defineStore('searcher', () => {
     }
   }
 
-  const search = (qry, salStore, pageStore) => {
+  const search = (qry, salStore, pageStore, toast = null) => {
     salStore.startLoading()
     importQueryParams(qry)
     let baseUrl = "https://apis.codante.io/api/orders-api/orders"
@@ -54,33 +54,33 @@ export const useSearcher = defineStore('searcher', () => {
     }
     if(filterSort.value !== '') {
       baseUrl += "&sort="
-      console.log(filterSort.value)
       if(filterOrder.value === 'desc'){
         baseUrl += "-"
       }
       baseUrl += filterSort.value
     }
 
-    useApi(baseUrl, salStore, pageStore)
+    useApi(baseUrl, salStore, pageStore, toast)
   }
 
-  const useApi = (url, sal, pageStore) => {
+  const useApi = (url, sal, pageStore, toast) => {
     console.log(url)
     axios
       .get(url)
       .then(
         response => {
-          console.log(response)
           pageStore.result = response.data.data
           pageStore.resultLen = response.data.meta.last_page
           pageStore.actualPage = response.data.meta.current_page
           pageStore.links = response.data.meta.links
           pageStore.baseLinks = response.data.links
           pageStore.isActive = true
+          if (toast !== null) toast.openToast()
         }
       )
       .catch((error) => {
         console.log(error)
+        toast.openToast(true)
       })
       .finally(() => {
         sal.stopLoading()

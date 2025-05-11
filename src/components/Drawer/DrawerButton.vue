@@ -4,10 +4,12 @@ import {useFilterControl} from "@/stores/filterControl.js";
 import {useSearchAndLoadControl} from "@/stores/searchAndLoading.js";
 import {useSearcher} from "@/stores/searcher.js";
 import {usePageControl} from "@/stores/pageControl.js";
+import {useToastControl} from "@/stores/toastControl.js";
 
 const filterControl = useFilterControl()
 const salControl = useSearchAndLoadControl()
 const searcher = useSearcher()
+const toastControl = useToastControl()
 const pageStore = usePageControl()
 const router = useRouter()
 
@@ -17,7 +19,7 @@ const send = () => {
   const query = filterControl.buildQueryParams()
   router.replace({query: null})
   router.replace({query: query})
-  searcher.search(query, salControl, pageStore)
+  searcher.search(query, salControl, pageStore, toastControl)
 }
 
 </script>

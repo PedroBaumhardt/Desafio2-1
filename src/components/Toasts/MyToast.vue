@@ -1,7 +1,6 @@
 <script setup>
 
   import {useToastControl} from "@/stores/toastControl.js";
-
   const toastControl = useToastControl()
 
 </script>
@@ -9,10 +8,10 @@
 <template>
 
   <div class="toast-container">
-    <div class="toast success-toast" v-if="toastControl.isSuccess">
+    <div class="toast success-toast" v-if="toastControl.isSuccess" @click="toastControl.closeToast">
       <p class="toast-text success-text">Filtro aplicados</p>
     </div>
-    <div class="toast error-toast">
+    <div class="toast error-toast" @click="toastControl.closeToast()" v-else>
       <p class="toast-text error-text">Erro inesperado</p>
     </div>
   </div>
@@ -33,9 +32,8 @@
     justify-content: center;
     align-items: center;
     color: black;
+    padding: 20px 40px;
     max-width: 80vw;
-    width: 200px;
-    height: 50px;
     border-radius: 10px;
   }
 
